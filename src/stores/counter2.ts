@@ -6,7 +6,9 @@ export const useCounterStore = defineStore({
         counter: 0
     }),
     getters: {
-        doubleCount: (state) => state.counter * 2
+        singleCount: (state) => state.counter,
+        doubleCount: (state) => state.counter * 2,
+        tripleCount: (state) => state.counter * 3,
     },
     actions: {
         increment() {
