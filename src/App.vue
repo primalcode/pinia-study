@@ -1,47 +1,28 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+
+import {useCounterStore} from "@/stores/counter";
+import {computed} from "vue";
+
+const countStore = useCounterStore();
+const count = computed(
+    (): number => {
+      return countStore.count
+    }
+)
+const doubleCount = computed(
+    (): number => {
+      return countStore.doubleCount
+    }
+)
+
+const onIncrementClick = () => {
+  countStore.increment()
+}
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <p>現在のポイント: {{ count }}</p>
+    <p>現在のポイントさらにバイ: {{doubleCount}}</p>
+  <button v-on:click="onIncrementClick">加算</button>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
