@@ -23,6 +23,6 @@ const onIncrementClick = () => {
 
 <template>
   <p>現在のポイント: {{ count }}</p>
-    <p>現在のポイントさらにバイ: {{doubleCount}}</p>
+  <p>現在のポイントさらにバイ: {{ doubleCount }}</p>
   <button v-on:click="onIncrementClick">加算</button>
 </template>
