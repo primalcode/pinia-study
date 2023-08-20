@@ -1,12 +1,12 @@
 <script setup lang="ts">
 
-import {useCounterStore} from "@/stores/counter";
+import {useCounterStore} from "@/stores/counter2";
 import {computed} from "vue";
 
 const countStore = useCounterStore();
 const count = computed(
     (): number => {
-      return countStore.count
+      return countStore.counter
     }
 )
 const doubleCount = computed(
